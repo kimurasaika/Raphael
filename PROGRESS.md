@@ -16,6 +16,8 @@
 
 | Task 5 — README strengths/trade-offs/use cases | Added "Why Raphael" section (Strengths, Trade-offs, Use cases where it shines, Where a plain assistant fits better). 12 H2 sections total, verified coherent. Pushed 1cd75d7 to origin/main. | README.md |
 
+| Task 6 — Bound facts.md token growth | Added memory-hygiene compression rule (~30 line soft cap, keep last ~10 verbatim, merge older) to persona.py + global raphael.md command, kept repo copy identical (diff confirmed). Smoke test exit 0 post-change, persona intact. README Memory section documents the cap. Pushed ca2d73f to origin/main. | raphael/persona.py, .claude/commands/raphael.md (outside repo), commands/raphael.md, README.md |
+
 ## Failed Attempts
 None yet.
 
