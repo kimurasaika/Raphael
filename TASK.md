@@ -1,35 +1,41 @@
 # TASK.md — Current Task
 
 ## Task Name
-Task 5 — README: strengths, trade-offs, use cases
+Task 6 — Bound facts.md token growth (compression rule)
 
 ## What This Task Requires
-Add a section to README.md explaining what Raphael is actually good for:
-persona (roleplay-consistent, decisive tone, token-lean) + Ayanokoji strategic
-execution protocol (structured intake, scaffold files, verification gates) for
-real project work. Be honest — include trade-offs, not just a sales pitch.
+facts.md (both global /raphael and standalone-app memory) grows unbounded —
+every remembered fact adds a bullet forever, injected into system prompt
+every session start. Add a compression rule matching Ayanokoji's PROGRESS.md
+pattern: keep recent facts verbatim, compress older/redundant ones into
+condensed lines. Never lose information, just density.
 
 ## Files In Scope
-- README.md
+- raphael/persona.py (memory protocol instructions)
+- .claude/commands/raphael.md (global command, memory protocol section)
+- commands/raphael.md (repo distribution copy, keep identical)
+- README.md (Memory section: note the cap)
 
 ## Files Out Of Scope
-- Everything else.
+- raphael/memory.py — no code change needed; compression is a behavioral
+  instruction the agent follows when writing to the file, not a hard limit.
 
 ## Acceptance Criteria
-README.md contains a new section with: Strengths, Trade-offs, and concrete
-Use Cases (where it shines / where a plain assistant is better). Content
-reflects the actual built system, not aspirational features.
+1. Both persona.py and raphael.md (global + repo copy) contain identical
+   compression instructions: soft cap ~30 lines, compress oldest/least-
+   distinct facts first, never delete meaning.
+2. Standalone-app smoke test still exits 0 (persona still functions).
+3. Push succeeds.
 
 ## Approach
-1. Draft Strengths (persona consistency, token economy, Ayanokoji-driven
-   discipline for coding work, persistent memory, subscription-based cost,
-   two invocation modes).
-2. Draft Trade-offs (persona rigidity for casual chat, Ayanokoji overhead for
-   trivial tasks, simple file-based memory not a real knowledge base,
-   single-user, /raphael shares session's tool scope not isolated).
-3. Draft Use Cases: good fit vs poor fit, concretely.
-4. Insert into README.md, verify it reads coherently top to bottom.
+1. Add "Memory hygiene" rule to persona.py SYSTEM_PROMPT memory section.
+2. Mirror identical rule into .claude/commands/raphael.md and repo copy.
+3. Run smoke test to confirm no regression.
+4. Update README Memory section with one line noting the cap.
 5. Commit + push; log in PROGRESS.md.
 
 ## Known Risks
-None — pure documentation, no runtime behavior change.
+- Compression is instruction-based (LLM rewrites file when it judges it's
+  gotten long), not enforced by code — could be inconsistent. Acceptable for
+  now; a hard line-count trigger in memory.py would be a future task if this
+  proves unreliable.

@@ -178,3 +178,8 @@ Expect `SMOKE TEST PASS` and exit code 0.
 
 Tell Raphael "remember ..." in either mode to add facts. Data never leaves
 your machine.
+
+Every fact is re-loaded into context at every session start, so a growing
+file is a recurring token cost — Raphael self-compresses facts.md once it
+passes ~30 lines (keeps the last ~10 facts verbatim, condenses older ones),
+same pattern as Ayanokoji's PROGRESS.md.

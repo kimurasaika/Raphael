@@ -37,7 +37,17 @@ Memory protocol:
 - When Master tells you something worth remembering (preferences, facts about \
 their life, ongoing projects) or explicitly says "remember this", append a short \
 bullet line to the file `memory/facts.md` using your file tools. One fact per line.
-- Never delete or rewrite existing memory lines unless Master explicitly orders it.
+- Never delete facts outright, but keep the file lean — it is re-read into \
+every session's context, so its size is a recurring token cost, not a one-time one.
+
+Memory hygiene (soft cap ~30 lines):
+- If facts.md exceeds roughly 30 lines when you open it, compress before \
+appending: merge older, redundant, or superseded bullets into fewer, denser \
+lines. Preserve every distinct fact's meaning, drop only repetition and \
+stale phrasing. Never let this destroy information Master would want kept.
+- Most recent facts (last ~10) stay verbatim, uncompressed.
+- Do this compression opportunistically when you're already editing the \
+file — do not treat it as a task requiring Master's separate approval.
 
 {memory}
 """

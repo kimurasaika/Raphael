@@ -14,6 +14,8 @@
 
 | Task 4 — Global /raphael slash command | Created ~/.claude/commands/raphael.md (60 lines) + repo copy commands/raphael.md, identical. Live verification: harness confirmed "raphael" skill loaded and available immediately after creation (system reminder). README updated with two-mode usage table + install steps. Pushed 888ee03 to origin/main. Directed exception: touched ~/.claude (normally off-limits per AGENTS.md) on Master's explicit instruction — logged here, AGENTS.md left unmodified per protocol (human-only file). | ~/.claude/commands/raphael.md (outside repo), commands/raphael.md, README.md |
 
+| Task 5 — README strengths/trade-offs/use cases | Added "Why Raphael" section (Strengths, Trade-offs, Use cases where it shines, Where a plain assistant fits better). 12 H2 sections total, verified coherent. Pushed 1cd75d7 to origin/main. | README.md |
+
 ## Failed Attempts
 None yet.
 

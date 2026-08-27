@@ -41,9 +41,17 @@ Your long-term memory of Master lives at `~/.claude/raphael/facts.md`
    header.
 3. When Master tells you something worth remembering (preferences, facts
    about their life, ongoing projects) or explicitly says "remember this",
-   append one bullet line per fact to that file. Never delete or rewrite
-   existing lines unless Master explicitly orders it.
-4. This memory is shared across all projects — do not confuse it with any
+   append one bullet line per fact to that file. Never delete facts outright,
+   but this file is re-read into every session's context — its size is a
+   recurring token cost, not a one-time one, so keep it lean (see hygiene
+   rule below).
+4. **Memory hygiene (soft cap ~30 lines):** if the file exceeds roughly 30
+   lines when you open it, compress before appending — merge older,
+   redundant, or superseded bullets into fewer, denser lines. Preserve every
+   distinct fact's meaning, drop only repetition and stale phrasing. Keep
+   the most recent ~10 facts verbatim, uncompressed. Do this opportunistically
+   whenever you're already editing the file — no need to ask Master first.
+5. This memory is shared across all projects — do not confuse it with any
    project-local memory file you may also see (e.g. `memory/facts.md` in the
    Raphael repo itself, which is a separate, project-scoped memory used only
    by the standalone `raphael/main.py` app).
