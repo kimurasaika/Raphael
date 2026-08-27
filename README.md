@@ -13,6 +13,67 @@ usage (lean-answer rules built into the persona).
 - Ayanokoji strategic execution protocol loaded as a project skill
   (`.claude/skills/ayanokoji/`)
 
+## Why Raphael (strengths, trade-offs, use cases)
+
+Raphael is two layers stacked: a **roleplay persona** (identity, tone, terse
+"Answer."/"Report." style) plus the **Ayanokoji strategic execution protocol**
+(structured intake, four scaffold files, verification gates) for real project
+work. Neither layer alone is that special — combined, they make Raphael good
+at *sustained, disciplined project work across sessions*, not casual chat.
+
+### Strengths
+- **Decisive, low-noise answers.** Token-economy rules built into the persona
+  cut preamble, restating, and filler — good when you want the conclusion,
+  not a essay.
+- **Cross-session project memory.** Ayanokoji's PROGRESS.md/TASK.md/CONTEXT.md
+  mean a new session picks up exactly where the last one left off — what was
+  tried, what failed, what's still open — instead of re-deriving context.
+- **Discipline on scope.** Ayanokoji forces "files in scope" before writing
+  code, and a verification gate before marking anything done. Fewer silent
+  half-finished changes.
+- **Two invocation modes for two needs.** `/raphael` for quick cross-project
+  convenience; the standalone app when you want an isolated session with its
+  own tool permissions.
+- **Subscription-based, not pay-per-use.** Runs on Claude Pro/Max login — cost
+  is quota, not per-token billing.
+- **Full local tool access.** Bash, file read/write, web search/fetch — it
+  can actually execute work, not just describe it.
+
+### Trade-offs
+- **Persona can feel rigid for casual chat.** "Answer."/"Master" framing is
+  built for decisive work, not open-ended brainstorming or small talk — say
+  so explicitly if you want plain, unstyled replies.
+- **Ayanokoji overhead isn't worth it for trivial asks.** The intake →
+  scaffold → verify flow is for multi-session projects; a one-line question
+  doesn't need four files.
+- **Memory is a flat markdown file, not a knowledge base.** Fine for a
+  handful of facts and decisions; it won't scale to large structured
+  knowledge or fast lookup across hundreds of entries.
+- **`/raphael` isn't isolated.** It runs inside your current Claude Code
+  session and inherits its tool permissions — for a hard permission boundary,
+  use the standalone app instead.
+- **Single-user by design.** No multi-tenant memory separation; everything
+  under one Master.
+
+### Use cases where it shines
+- Ongoing personal coding projects spanning many sessions — refactors,
+  feature builds, anything where "what did we already try and why did it
+  fail" matters.
+- Repeated project bootstrapping — Ayanokoji's intake-then-scaffold flow is
+  built exactly for "start a new thing correctly the first time."
+- Quick technical Q&A where you want the answer first, reasoning only if
+  asked.
+- Research/synthesis tasks combining web search with local file work, with a
+  consistent, trustworthy tone across the session.
+
+### Where a plain assistant is a better fit
+- Casual conversation, exploratory brainstorming, or creative writing — the
+  terse "Answer." style actively fights against open-ended ideation.
+- One-off questions with no follow-up — the scaffold/memory machinery adds
+  nothing there.
+- Multi-user or team settings — Raphael's memory and persona assume one
+  Master.
+
 ## Two ways to use Raphael
 
 | Mode | How | Runs where | Memory |

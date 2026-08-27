@@ -12,6 +12,8 @@
 
 | Task 3 — Token-economy persona + full setup README | Smoke test exit 0; reply shrank ~90 → ~22 words, persona intact ("Answer. I'm Raphael — your analytical intelligence, Master..."). Pushed 16852fa to origin/main. | raphael/persona.py, README.md |
 
+| Task 4 — Global /raphael slash command | Created ~/.claude/commands/raphael.md (60 lines) + repo copy commands/raphael.md, identical. Live verification: harness confirmed "raphael" skill loaded and available immediately after creation (system reminder). README updated with two-mode usage table + install steps. Pushed 888ee03 to origin/main. Directed exception: touched ~/.claude (normally off-limits per AGENTS.md) on Master's explicit instruction — logged here, AGENTS.md left unmodified per protocol (human-only file). | ~/.claude/commands/raphael.md (outside repo), commands/raphael.md, README.md |
+
 ## Failed Attempts
 None yet.
 
