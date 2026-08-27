@@ -10,6 +10,8 @@
 
 | Task 2 — Ayanokoji skill embedded + GitHub publish | Smoke test exit 0 with setting_sources=["project"]; reply confirmed ayanokoji loaded and caveman leak gone. `git push` succeeded: commit 44997c2 → github.com/kimurasaika/Raphael (main). | .claude/skills/ayanokoji/SKILL.md, raphael/main.py, tests/smoke_test.py, .gitignore, README.md |
 
+| Task 3 — Token-economy persona + full setup README | Smoke test exit 0; reply shrank ~90 → ~22 words, persona intact ("Answer. I'm Raphael — your analytical intelligence, Master..."). Pushed 16852fa to origin/main. | raphael/persona.py, README.md |
+
 ## Failed Attempts
 None yet.
 

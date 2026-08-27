@@ -9,9 +9,35 @@ usage (lean-answer rules built into the persona).
 - Multi-turn chat with a fixed persona
 - Runs local shell commands, reads/writes/edits files
 - Web search and fetch
-- Long-term memory across sessions (`memory/facts.md`, kept local, never committed)
+- Long-term memory across sessions
 - Ayanokoji strategic execution protocol loaded as a project skill
   (`.claude/skills/ayanokoji/`)
+
+## Two ways to use Raphael
+
+| Mode | How | Runs where | Memory |
+|---|---|---|---|
+| **`/raphael` slash command** (recommended, quick) | Install once, then type `/raphael` in any Claude Code session, in any project | Inside your current Claude Code session, reuses its tools | Global: `~/.claude/raphael/facts.md` (all projects share it) |
+| **Standalone app** | `python -m raphael.main` from this repo | Its own dedicated SDK session, isolated tool permissions | Project-local: `memory/facts.md` (this repo only) |
+
+Pick `/raphael` for everyday convenience across every project. Pick the
+standalone app when you want Raphael fully isolated with its own permission
+scope.
+
+### Install `/raphael` (one time, works everywhere after)
+```bash
+# after cloning this repo (see Setup below), copy the command into your
+# global Claude Code config:
+mkdir -p ~/.claude/commands
+cp commands/raphael.md ~/.claude/commands/raphael.md
+```
+Windows PowerShell:
+```powershell
+New-Item -ItemType Directory -Force ~/.claude/commands
+Copy-Item commands/raphael.md ~/.claude/commands/raphael.md
+```
+Then, in any Claude Code session, in any project, type `/raphael` — no clone
+needed per-project once this is installed.
 
 ## Requirements
 | Requirement | Version | Check with |
@@ -62,10 +88,15 @@ Do NOT set `ANTHROPIC_API_KEY`; if it is set, unset it, or the SDK will
 bill pay-per-use instead of using your subscription.
 
 **5. Run Raphael**
+
+Standalone app:
 ```bash
 python -m raphael.main
 ```
 Type your message at the `Master>` prompt. `exit` or `quit` to leave.
+
+Or, if you installed the slash command above, just type `/raphael` in any
+Claude Code session.
 
 **6. Verify (optional)**
 ```bash
@@ -80,6 +111,9 @@ Expect `SMOKE TEST PASS` and exit code 0.
 - Garbled characters on Windows → run `chcp 65001` or use Windows Terminal.
 
 ## Memory
-Raphael stores facts about you in `memory/facts.md` (created on first run).
-Tell it "remember ..." to add facts. The folder is gitignored — personal data
-never leaves your machine.
+- Standalone app: `memory/facts.md` in this repo (gitignored, project-local).
+- `/raphael` slash command: `~/.claude/raphael/facts.md` (global, shared
+  across every project on your machine).
+
+Tell Raphael "remember ..." in either mode to add facts. Data never leaves
+your machine.
