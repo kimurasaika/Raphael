@@ -8,10 +8,11 @@
 
 | Task 1 — Minimal Raphael CLI chat agent | `python tests/smoke_test.py` exit 0. Actual output: reply contained "Answer. Me Raphael, Ultimate Skill class analytical intelligence..." + "SMOKE TEST PASS". Subscription auth confirmed (no ANTHROPIC_API_KEY set). | requirements.txt, raphael/persona.py, raphael/memory.py, raphael/main.py, tests/smoke_test.py |
 
+| Task 2 — Ayanokoji skill embedded + GitHub publish | Smoke test exit 0 with setting_sources=["project"]; reply confirmed ayanokoji loaded and caveman leak gone. `git push` succeeded: commit 44997c2 → github.com/kimurasaika/Raphael (main). | .claude/skills/ayanokoji/SKILL.md, raphael/main.py, tests/smoke_test.py, .gitignore, README.md |
+
 ## Failed Attempts
 None yet.
 
 ## Current Blockers
-- Observation (not blocker): SDK inherits user's global Claude Code config
-  (~/.claude hooks/plugins — e.g. caveman mode leaked into Raphael's reply).
-  If persona purity wanted, isolate via ClaudeAgentOptions setting_sources.
+No current blockers. (Task 1 config-leak observation resolved in Task 2 via
+setting_sources=["project"].)

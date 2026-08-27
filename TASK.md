@@ -1,39 +1,33 @@
 # TASK.md — Current Task
 
 ## Task Name
-Task 2 — Embed ayanokoji skill into Raphael + publish to GitHub
+Task 3 — Token-economy persona rules + full CLI setup README
 
 ## What This Task Requires
-1. Copy the ayanokoji skill into the project as a project-level skill
-   (.claude/skills/ayanokoji/SKILL.md) so Raphael loads it natively.
-2. Set setting_sources=["project"] in ClaudeAgentOptions — loads project skills,
-   drops user-global config (fixes caveman-mode leak observed in Task 1).
-3. Initialize git repo, add .gitignore excluding memory/ and __pycache__,
-   create private GitHub repo, push.
+1. Add an output-token-economy section to raphael/persona.py: concise by
+   default, no filler/preamble/repetition, short summaries, expand only when
+   Master asks. Persona intact, just leaner.
+2. Rewrite README.md: complete from-scratch setup on a fresh terminal
+   (prerequisites: Python 3.12+, Claude Code CLI, git; clone, install, login,
+   run, test) + troubleshooting basics.
 
 ## Files In Scope
-- .claude/skills/ayanokoji/SKILL.md (copied)
-- raphael/main.py (setting_sources)
-- tests/smoke_test.py (setting_sources, keep consistent)
-- .gitignore
-- README.md (short)
-- git metadata
+- raphael/persona.py
+- README.md
 
 ## Files Out Of Scope
-- AGENTS.md, CONTEXT.md, memory/ contents (never committed).
+- Everything else. No caveman skill import.
 
 ## Acceptance Criteria
-1. `python tests/smoke_test.py` exits 0 (agent still replies as Raphael).
-2. `git push` succeeds; `gh repo view` shows the repo with files present.
+`python tests/smoke_test.py` exits 0; reply is in persona and noticeably
+shorter than Task 2 baseline (was ~90 words). Push to origin succeeds.
 
 ## Approach
-1. mkdir .claude/skills/ayanokoji; copy SKILL.md from user skill dir.
-2. Edit main.py + smoke_test.py: setting_sources=["project"].
-3. Run smoke test.
-4. Write .gitignore + README.md; git init/add/commit; gh repo create --private --push.
-5. Log verification in PROGRESS.md.
+1. Edit persona.py: add "Token economy" rules block.
+2. Rewrite README.md.
+3. Run smoke test, compare length.
+4. Commit + push; log in PROGRESS.md.
 
 ## Known Risks
-- setting_sources=["project"] changes system prompt behavior → if smoke test
-  persona breaks, revert to default and isolate differently.
-- gh CLI not authenticated → user runs `! gh auth login`.
+- Over-tight brevity rules could clip useful detail → rule includes
+  "expand when Master asks or when accuracy demands".
