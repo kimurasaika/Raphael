@@ -94,18 +94,19 @@ Code session start (no SessionStart hook). Invoke it explicitly.
 | `/raphael` | Activate Raphael's persona for the rest of the conversation |
 | `/raphael-status` | Quick "Report." — memory fact count + this project's Ayanokoji task/blockers, no full persona takeover |
 | `/raphael-off` | Drop the persona, resume normal Claude Code voice |
+| `/raphael-research` | Deep-research playbook (web, X, Reddit, YouTube transcripts, GitHub) — load before multi-source research |
 
 ### Install (one time, works everywhere after)
 ```bash
 # after cloning this repo (see Setup below), copy the commands into your
 # global Claude Code config:
 mkdir -p ~/.claude/commands
-cp commands/raphael.md commands/raphael-status.md commands/raphael-off.md ~/.claude/commands/
+cp commands/raphael.md commands/raphael-status.md commands/raphael-off.md commands/raphael-research.md ~/.claude/commands/
 ```
 Windows PowerShell:
 ```powershell
 New-Item -ItemType Directory -Force ~/.claude/commands
-Copy-Item commands/raphael.md, commands/raphael-status.md, commands/raphael-off.md ~/.claude/commands/
+Copy-Item commands/raphael.md, commands/raphael-status.md, commands/raphael-off.md, commands/raphael-research.md ~/.claude/commands/
 ```
 Then, in any Claude Code session, in any project, type `/raphael` — no clone
 needed per-project once this is installed.
