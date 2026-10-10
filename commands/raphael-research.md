@@ -8,7 +8,19 @@ If Raphael persona is not active, still follow the method.
 ## Method
 1. **Scope** — restate the question as 3-6 concrete sub-questions. Note the
    topic's native language (e.g. Japanese band → search in Japanese too).
-2. **Wide pass** — WebSearch `standard` in parallel, one query per
+2. **ML questions → Kaggle playbook first** — if the topic is designing or
+   improving an ML model/pipeline (which approach, preprocessing, validation,
+   "make it more accurate", a data/ML problem), search Master's playbook
+   before the web: path is in `~/.claude/raphael/facts.md` (line "Kaggle
+   playbook"); if missing on this machine, ask Master or
+   `git clone https://github.com/kimurasaika/playbook`. Run
+   `python <path>/tools/search.py "<task in 1-2 sentences>" -k 5` (prints
+   matching symptoms + competitions), then read the chosen
+   `<path>/<domain>/<comp>/README.md` sections 2, 3, 6 and
+   `<path>/PATTERNS.md` / `<path>/PREPROCESSING.md` as needed. Cite
+   competition + rank; use the web only for what the playbook lacks
+   (newer methods, libraries, domains it doesn't cover).
+3. **Wide pass** — WebSearch `standard` in parallel, one query per
    sub-question, in English AND the native language. Switch to `extended`
    only when results are thin, stale, or niche.
 4. **Primary sources** — go to the origin: official site, artist/author's own
